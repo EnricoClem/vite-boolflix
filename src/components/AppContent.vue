@@ -5,11 +5,12 @@
                 <h2>Risultati ricerca:</h2>
             </div>
             <div class="container">
-                <ul>
-                    <li>
-                        titolo del film
+                <ul v-if="store.movies.length !== 0">
+                    <li v-for="movie in store.movies" :key="movie.id">
+                        
                     </li>
                 </ul>
+                <p v-else>Effettua una ricerca per visualizzare film e serie.</p>
             </div>
         </section>
     </main>
