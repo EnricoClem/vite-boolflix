@@ -5,13 +5,8 @@
                 <h2>Risultati ricerca:</h2>
             </div>
             <div class="container">
-                <ul v-if="store.movies.length !== 0">
-                    <li v-for="movie in store.movies" :key="movie.id">
-                        <h3>{{ movie.title }}</h3>
-                        <p>{{ movie.original_title }}</p>
-                        <p>{{ movie.original_language }}</p>
-                        <p>{{ movie.vote_average }}</p>
-                    </li>
+                <ul class="card-container" v-if="store.movies.length !== 0">
+                    <card v-for="movie in store.movies" :key="movie.id" :item="movie" />
                 </ul>
                 <p v-else>Effettua una ricerca per visualizzare film e serie.</p>
             </div>
@@ -21,8 +16,12 @@
 
 <script>
 import { store } from '../store.js'
+import card from './Card.vue'
 
 export default {
+    components: {
+        card
+    },
     data() {
         return {
             store: store,
@@ -33,5 +32,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.card-container {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    margin: 20px;
+}
     
 </style>
