@@ -7,7 +7,10 @@
             <div class="container">
                 <ul v-if="store.movies.length !== 0">
                     <li v-for="movie in store.movies" :key="movie.id">
-                        
+                        <h3>{{ movie.title }}</h3>
+                        <p>{{ movie.original_title }}</p>
+                        <p>{{ movie.original_language }}</p>
+                        <p>{{ movie.vote_average }}</p>
                     </li>
                 </ul>
                 <p v-else>Effettua una ricerca per visualizzare film e serie.</p>

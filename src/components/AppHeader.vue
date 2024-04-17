@@ -6,7 +6,8 @@
 </template>
 
 <script>
-import { Axios } from 'axios';
+import axios from 'axios';
+import { store } from '../store.js';
 
 export default {
     data() {
@@ -21,6 +22,8 @@ export default {
                     api_key: '8be08f5c8e1957ec16193b9e110877d2',
                     query: this.query
                 }
+            }).then((res) => {
+                store.movies = res.data.results
             })
         }
     }
