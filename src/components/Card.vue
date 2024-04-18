@@ -10,7 +10,7 @@
             <span>Lingua originale: </span>
             <span class="lang-initials">{{ item.original_language }}</span>
         </div>
-        <p>{{ item.vote_average }}</p>
+        <p>{{ setRating() }}</p>
     </li>
 </template>
 
@@ -32,7 +32,12 @@ export default {
                 'fr': 'fr.png'
             }
         }
-    }
+    },
+    methods: {
+        setRating() {
+            return Math.round(this.item.vote_average / 2);
+        }
+    },
 }
 </script>
 
