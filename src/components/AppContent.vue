@@ -1,15 +1,10 @@
 <template>
     <main class="container">
         <section>
-            <div class="container">
-                <h2>Risultati ricerca:</h2>
-            </div>
-            <div class="container">
-                <ul class="card-container" v-if="store.movies.length !== 0">
-                    <card v-for="movieOrTv in store.moviesAndTvs" :key="movieOrTv.id" :item="movieOrTv" />
-                </ul>
-                <p v-else>Effettua una ricerca per visualizzare film e serie.</p>
-            </div>
+            <ul class="card-container row" v-if="store.movies.length !== 0">
+                <card v-for="movieOrTv in store.moviesAndTvs" :key="movieOrTv.id" :item="movieOrTv" />
+            </ul>
+            <p v-else>Effettua una ricerca per visualizzare film e serie.</p>
         </section>
     </main>
 </template>
@@ -34,10 +29,12 @@ export default {
 <style lang="scss" scoped>
 
 .card-container {
-    display: flex;
-    flex-wrap: nowrap;
     gap: 10px;
-    margin: 20px;
+    width: 100%;
+}
+
+main {
+    background-color: rgb(54, 54, 54);
 }
     
 </style>

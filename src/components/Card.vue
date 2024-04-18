@@ -1,6 +1,6 @@
 <template>
-    <li class="card">
-        <img :src="`http://image.tmdb.org/t/p/w342/${item.poster_path}`" />
+    <li class="card col-2" :style="{ backgroundImage: `url(http://image.tmdb.org/t/p/w342/${item.poster_path})` }">
+        <!-- <img :src="`http://image.tmdb.org/t/p/w342/${item.poster_path}`" /> -->
         <h3 v-if="item.title">{{ item.title }}</h3>
         <h3 v-else>{{ item.name }}</h3>
         <p v-if="item.original_title">{{ item.original_title }}</p>
@@ -55,8 +55,9 @@ export default {
 .card {
     padding: 20px;
     color: white;
-    background-color: darkslateblue;
-    border-radius: 10px;
+    height: 300px;
+    margin-bottom: 20px;
+    background-size: cover;
 }
 
 .lang-img {
