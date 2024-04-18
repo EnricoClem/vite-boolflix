@@ -10,7 +10,12 @@
             <span>Lingua originale: </span>
             <span class="lang-initials">{{ item.original_language }}</span>
         </div>
-        <p>{{ setRating() }}</p>
+        <div v-for="star in setRating()">
+            <font-awesome-icon :icon="['fas', 'star']" />
+        </div>
+        <div v-for="star in negativeRatign()">
+            <font-awesome-icon :icon="['far', 'star']" />
+        </div>
     </li>
 </template>
 
@@ -36,6 +41,10 @@ export default {
     methods: {
         setRating() {
             return Math.round(this.item.vote_average / 2);
+        },
+        negativeRatign() {
+            let roundedRate = Math.round(this.item.vote_average / 2)
+            return Math.floor(5 - roundedRate);
         }
     },
 }
