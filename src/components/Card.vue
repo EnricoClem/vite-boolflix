@@ -1,20 +1,21 @@
 <template>
     <li class="card col-2" :style="{ backgroundImage: `url(http://image.tmdb.org/t/p/w342/${item.poster_path})` }">
-        <!-- <img :src="`http://image.tmdb.org/t/p/w342/${item.poster_path}`" /> -->
-        <h3 v-if="item.title">{{ item.title }}</h3>
-        <h3 v-else>{{ item.name }}</h3>
-        <p v-if="item.original_title">{{ item.original_title }}</p>
-        <p v-else>{{ item.original_name }}</p>
-        <img v-if="languages[item.original_language]" :src="`/${languages[item.original_language]}`" class="lang-img" alt=""/>
-        <div v-else>
-            <span>Lingua originale: </span>
-            <span class="lang-initials">{{ item.original_language }}</span>
-        </div>
-        <div v-for="star in setRating()">
-            <font-awesome-icon :icon="['fas', 'star']" />
-        </div>
-        <div v-for="star in negativeRatign()">
-            <font-awesome-icon :icon="['far', 'star']" />
+        <div class="hide centered">
+            <h3 v-if="item.title">{{ item.title }}</h3>
+            <h3 v-else>{{ item.name }}</h3>
+            <p v-if="item.original_title">{{ item.original_title }}</p>
+            <p v-else>{{ item.original_name }}</p>
+            <img v-if="languages[item.original_language]" :src="`/${languages[item.original_language]}`" class="lang-img" alt=""/>
+            <div v-else>
+                <span>Lingua originale: </span>
+                <span class="lang-initials">{{ item.original_language }}</span>
+            </div>
+            <div v-for="star in setRating()">
+                <font-awesome-icon :icon="['fas', 'star']" />
+            </div>
+            <div v-for="star in negativeRatign()">
+                <font-awesome-icon :icon="['far', 'star']" />
+            </div>
         </div>
     </li>
 </template>
@@ -53,7 +54,6 @@ export default {
 <style lang="scss" scoped>
 
 .card {
-    padding: 20px;
     color: white;
     height: 300px;
     margin-bottom: 20px;
@@ -67,6 +67,19 @@ export default {
 
 .lang-initials {
     text-transform: uppercase;
+}
+
+.hide {
+    display: none;
+}
+
+.card:hover .hide {
+    display: flex;
+    flex-direction: column;
+    background-color:  rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    padding: 20px;
 }
     
 </style>

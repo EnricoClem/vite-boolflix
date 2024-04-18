@@ -58,7 +58,7 @@ export default {
     background: none;
     padding: 10px;
     border: none;
-    pointer-events: visible;
+    cursor: pointer;
 }
 
 .search-icon {
