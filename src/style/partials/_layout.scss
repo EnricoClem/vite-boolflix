@@ -1,0 +1,17 @@
+.container {
+    width: 100vw;
+    padding: 30px;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.between {
+    justify-content: space-between;
+}
+
+.centered {
+    align-items: center;
+}

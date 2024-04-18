@@ -1,7 +1,14 @@
 <template>
-    <div class="container">
-        <input type="text" v-model="query" placeholder="Cerca film e serie tv...">
-        <button @click="searchData">Cerca!</button>
+    <div class="container head">
+        <div class="flex between centered">
+            <h1>BOOLFLIX</h1>
+            <div class="flex centered">
+                <input class="search-bar" type="text" v-model="query" placeholder="Cerca film e serie tv...">
+                <button @click="searchData" class="search-button">
+                    <font-awesome-icon class="search-icon" :icon="['fas', 'magnifying-glass']" />
+                </button>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -41,5 +48,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.container.head {
+    background-color: black;
+    color: red;
+}
+
+.search-button {
+    background: none;
+    padding: 10px;
+    border: none;
+    pointer-events: visible;
+}
+
+.search-icon {
+    color: white;
+    font-size: 25px;
+}
+
+.search-bar {
+    padding: 10px;
+    border-radius: 9999px;
+    border: none;
+}
     
 </style>
