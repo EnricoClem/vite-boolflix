@@ -6,7 +6,7 @@
             </div>
             <div class="container">
                 <ul class="card-container" v-if="store.movies.length !== 0">
-                    <card v-for="movie in store.movies" :key="movie.id" :item="movie" />
+                    <card v-for="movieOrTv in store.moviesAndTvs" :key="movieOrTv.id" :item="movieOrTv" />
                 </ul>
                 <p v-else>Effettua una ricerca per visualizzare film e serie.</p>
             </div>
